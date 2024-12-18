@@ -1,0 +1,40 @@
+-- no 1 --
+update Mahasiswa
+set Alamat = 'Jl. Raya No.5'
+where NIM = 123456;
+
+-- no 2 --
+select 
+	m.NIM,
+	m.Nama,
+	m.Jurusan,
+	mk.Dosen_Pengajar
+from
+	Mahasiswa m
+join
+	Mata_Kuliah mk
+on
+	m.NIM = mk.NIM
+where 
+	m.Jurusan = 'Teknik Informatika';
+
+-- no 3 --	
+select Nama, Umur
+from Mahasiswa
+order by Umur desc
+limit 5;
+
+-- no 4 --
+select
+	m.Nama,
+	mk.Mata_Kuliah,
+	mk.Nilai
+from 
+	Mata_Kuliah mk
+join
+	Mahasiswa m
+on 
+	mk.NIM = m.NIM
+where
+	Nilai > 70;
+	
