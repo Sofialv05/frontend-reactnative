@@ -51,7 +51,7 @@ export const Header = () => {
 const styles = StyleSheet.create({
   header: {
     backgroundColor: "white",
-    paddingTop: 50,
+    paddingTop: 40,
     paddingBottom: 15,
     borderBottomWidth: 1,
     borderBottomColor: "#eee",

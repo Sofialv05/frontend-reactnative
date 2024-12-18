@@ -6,6 +6,7 @@ export const SearchSection = () => {
   const [printerBrand, setPrinterBrand] = useState("");
   const [printerSeries, setPrinterSeries] = useState("");
   const [printerModel, setPrinterModel] = useState("");
+  const [activeTab, setActiveTab] = useState("easy");
 
   return (
     <>
@@ -20,25 +21,36 @@ export const SearchSection = () => {
 
         <View style={styles.searchTabs}>
           <TouchableOpacity
+            onPress={() => setActiveTab("easy")}
             style={[
-              {
-                ...styles.tab,
-                borderTopLeftRadius: 5,
-                borderBottomLeftRadius: 5,
-              },
-              styles.activeTab,
+              styles.tab,
+              { borderTopLeftRadius: 5, borderBottomLeftRadius: 5 },
+              activeTab === "easy" && styles.activeTab,
             ]}
           >
-            <Text style={styles.activeTabText}>3-Step Easy Search</Text>
+            <Text
+              style={
+                activeTab === "easy" ? styles.activeTabText : styles.tabText
+              }
+            >
+              3-Step Easy Search
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={{
-              ...styles.tab,
-              borderTopRightRadius: 5,
-              borderBottomRightRadius: 5,
-            }}
+            onPress={() => setActiveTab("serial")}
+            style={[
+              styles.tab,
+              { borderTopRightRadius: 5, borderBottomRightRadius: 5 },
+              activeTab === "serial" && styles.activeTab,
+            ]}
           >
-            <Text style={styles.tabText}>Search by Serial Number</Text>
+            <Text
+              style={
+                activeTab === "serial" ? styles.activeTabText : styles.tabText
+              }
+            >
+              Search by Serial Number
+            </Text>
           </TouchableOpacity>
         </View>
 
@@ -50,9 +62,6 @@ export const SearchSection = () => {
               style={styles.picker}
             >
               <Picker.Item label="1. Printer Brand" value="" />
-              <Picker.Item label="HP" value="hp" />
-              <Picker.Item label="Canon" value="canon" />
-              <Picker.Item label="Epson" value="epson" />
             </Picker>
           </View>
 
@@ -89,6 +98,8 @@ const styles = StyleSheet.create({
   logoContainer: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 15,
   },
   logo: {
     width: 30,
@@ -96,14 +107,14 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   logoText: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
   },
   searchSection: {
     padding: 20,
   },
   searchTitle: {
-    fontSize: 24,
+    fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: 20,
