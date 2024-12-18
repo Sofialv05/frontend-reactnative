@@ -167,5 +167,6 @@ const styles = StyleSheet.create({
   findButtonText: {
     color: "white",
     fontWeight: "bold",
+    fontSize: 16,
   },
 });

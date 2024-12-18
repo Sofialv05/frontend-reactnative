@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SearchBar } from "react-native-elements";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import Entypo from "@expo/vector-icons/Entypo";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 
 export const Header = () => {
   const [query, setQuery] = useState("");
